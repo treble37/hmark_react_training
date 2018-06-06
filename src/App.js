@@ -1,9 +1,10 @@
 import React from "react";
+import ECards from "./ECards";
 
 class App extends React.Component {
-    render() {
-        return  <div id="hi">hi</div>;
-    }
+  render() {
+    return <ECards />;
+  }
 }
 
 export default App;
