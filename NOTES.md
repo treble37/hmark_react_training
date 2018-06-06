@@ -4,6 +4,14 @@ https://codesandbox.io/
 
 https://github.com/coryhouse/rjc/issues
 
+### VS code plugins
+
+quokka.js
+prettier
+npm
+npm Intellisense
+Reactjs code snippets
+
 Agenda 
 Today 6/6/18 Wed
 1-3 - Modern JS
