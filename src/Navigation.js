@@ -6,10 +6,14 @@ class Navigation extends React.Component {
       <div>
         <ul>
           <li>
-            <a href="#">Home</a>
+            <a href="Home" onClick={this.props.onLinkClick}>
+              Home
+            </a>
           </li>
           <li>
-            <a href="https://www.google.com/">Google</a>
+            <a href="ECards" onClick={this.props.onLinkClick}>
+              ECards
+            </a>
           </li>
         </ul>
       </div>
