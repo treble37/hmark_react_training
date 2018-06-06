@@ -1,9 +1,15 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ECards from "./ECards";
+import Home from "./Home";
 
 class App extends React.Component {
   render() {
-    return <ECards />;
+    return (
+      <Fragment>
+        <Home />
+        <ECards />
+      </Fragment>
+    );
   }
 }
 
