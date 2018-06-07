@@ -12,14 +12,23 @@ npm
 npm Intellisense
 Reactjs code snippets
 
-Agenda 
+Agenda
 Today 6/6/18 Wed
 1-3 - Modern JS
 3-5 - Build React app
 
 Tomorrow 6/7/18 Thurs
 9 - 12 Building React app
-1-5 Redux, Testing, New React features (context, erorr handling), reusable component design, best practices
+
+- Forms for editing, adding, deleting eCards
+- Other binding patterns to solve this keyword issues
+- Core React features
+- React router?
+- Styling?
+- How create-react-app works - the tech behind the scenes
+- Mock API
+
+1-5 Redux, Testing (Jest, Enzyme, Cypress.io), New React features (context, erorr handling), reusable component design, best practices
 
 ## Day 1 6/6/18
 
@@ -29,14 +38,13 @@ const helloWorld3 = (message => "hello")
 
 const helloWorld4 = (message) => message;
 
-* JS teams use linters to enforce their styles
+- JS teams use linters to enforce their styles
 
 ### Template literals
 
 ### Destructuring
 
 ```
-
 const user = {
     name: 'Cory',
     email: 'co@example.com',
@@ -74,4 +82,3 @@ console.log(sum(...numbers));
 const { name, email, ...rest } = user;
 console.log(rest);
 ```
-
