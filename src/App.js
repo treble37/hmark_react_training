@@ -10,15 +10,13 @@ class App extends React.Component {
     this.state = {
       currentPage: "Home"
     };
-
-    this.handleNavigationClick = this.handleNavigationClick.bind(this);
   }
 
-  handleNavigationClick(event) {
+  handleNavigationClick = event => {
     event.preventDefault();
     const newPage = event.target.pathname.split("/")[1];
     this.setState({ currentPage: newPage });
-  }
+  };
 
   handleAddECardClick = event => {
     this.setState({ currentPage: "ManageECard" });

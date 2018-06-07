@@ -1,5 +1,6 @@
 import React from "react";
 import ManageECard from "./ManageECard";
+import PropTypes from "prop-types";
 
 /* 1. Place add ecard button above the ecards
  * 2. On click, display ManageECard (a form for adding a new e-card)*/
@@ -25,7 +26,7 @@ class ECards extends React.Component {
           <tbody>
             {eCards.map(card => {
               return (
-                <tr>
+                <tr key={card.sku}>
                   <td>{card.sku}</td>
                   <td>{card.name}</td>
                   <td>{card.category}</td>
@@ -38,5 +39,9 @@ class ECards extends React.Component {
     );
   }
 }
+
+ECards.propTypes = {
+  onAddECardClick: PropTypes.func.isRequired
+};
 
 export default ECards;
