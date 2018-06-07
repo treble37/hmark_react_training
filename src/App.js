@@ -28,6 +28,15 @@ class App extends React.Component {
     this.setState({ currentPage: "ManageECard" });
   };
 
+  handleDeleteECardClick = (event, eCard) => {
+    event.preventDefault();
+    this.setState({
+      eCards: this.state.eCards.filter(function(card) {
+        return card !== eCard;
+      })
+    });
+  };
+
   handleSaveECard = (event, eCard) => {
     event.preventDefault(); //prevent the page reload
     // add new eCard to state
@@ -45,6 +54,7 @@ class App extends React.Component {
         {this.state.currentPage === "ECards" && (
           <ECards
             onAddECardClick={this.handleAddECardClick}
+            onDeleteECardClick={this.handleDeleteECardClick}
             eCards={this.state.eCards}
           />
         )}
