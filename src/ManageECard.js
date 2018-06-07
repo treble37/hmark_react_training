@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class ManageECard extends React.Component {
   render() {
@@ -15,5 +16,9 @@ class ManageECard extends React.Component {
     );
   }
 }
+
+ManageECard.propTypes = {
+  eCard: PropTypes.object.isRequired
+};
 
 export default ManageECard;
