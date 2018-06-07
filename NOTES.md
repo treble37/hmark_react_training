@@ -32,6 +32,11 @@ Tomorrow 6/7/18 Thurs
 
 1-5 Redux, Testing (Jest, Enzyme, Cypress.io), New React features (context, erorr handling), reusable component design, best practices
 
+### Terminology
+
+- The => uses the "this" that inherits from the parent scope enclosure
+- Higher order function - a function that accepts a function
+
 ## Day 1 6/6/18
 
 ### Functions
