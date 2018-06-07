@@ -13,7 +13,8 @@ class App extends React.Component {
         sku: "",
         name: "",
         category: ""
-      }
+      },
+      eCards: []
     };
   }
 
@@ -27,16 +28,31 @@ class App extends React.Component {
     this.setState({ currentPage: "ManageECard" });
   };
 
+  handleSaveECard = (event, eCard) => {
+    event.preventDefault(); //prevent the page reload
+    // add new eCard to state
+    this.setState({
+      eCards: [...this.state.eCards, eCard],
+      currentPage: "ECards"
+    });
+  };
+
   render() {
     return (
       <Fragment>
         <Navigation onLinkClick={this.handleNavigationClick} />
         {this.state.currentPage === "Home" && <Home />}
         {this.state.currentPage === "ECards" && (
-          <ECards onAddECardClick={this.handleAddECardClick} />
+          <ECards
+            onAddECardClick={this.handleAddECardClick}
+            eCards={this.state.eCards}
+          />
         )}
         {this.state.currentPage === "ManageECard" && (
-          <ManageECard eCard={this.state.newECard} />
+          <ManageECard
+            eCard={this.state.newECard}
+            onSubmit={this.handleSaveECard}
+          />
         )}
       </Fragment>
     );
