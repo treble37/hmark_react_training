@@ -9,40 +9,47 @@ import PropTypes from "prop-types";
 5. Don't display sku/name/category row header if empty ecards*/
 
 class ECards extends React.Component {
+  renderTable() {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>Name</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.eCards.map(card => {
+            return (
+              <tr key={card.sku}>
+                <td>{card.sku}</td>
+                <td>{card.name}</td>
+                <td>{card.category}</td>
+                <td>
+                  <button
+                    onClick={event => {
+                      this.props.onDeleteECardClick(event, card);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    );
+  }
   render() {
     return (
       <React.Fragment>
         <button onClick={this.props.onAddECardClick}>Add ECard</button>
-        {this.props.eCards.length > 0 && (
-          <table>
-            <thead>
-              <tr>
-                <th>SKU</th>
-                <th>Name</th>
-                <th>Category</th>
-              </tr>
-            </thead>
-            <tbody>
-              {this.props.eCards.map(card => {
-                return (
-                  <tr key={card.sku}>
-                    <td>{card.sku}</td>
-                    <td>{card.name}</td>
-                    <td>{card.category}</td>
-                    <td>
-                      <button
-                        onClick={event => {
-                          this.props.onDeleteECardClick(event, card);
-                        }}
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+        {this.props.eCards.length === 0 ? (
+          <div>No Cards</div>
+        ) : (
+          this.renderTable()
         )}
       </React.Fragment>
     );
