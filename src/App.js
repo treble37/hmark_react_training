@@ -8,7 +8,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: "Home"
+      currentPage: "Home",
+      newECard: {
+        sku: "",
+        name: "",
+        category: ""
+      }
     };
   }
 
@@ -30,7 +35,9 @@ class App extends React.Component {
         {this.state.currentPage === "ECards" && (
           <ECards onAddECardClick={this.handleAddECardClick} />
         )}
-        {this.state.currentPage === "ManageECard" && <ManageECard />}
+        {this.state.currentPage === "ManageECard" && (
+          <ManageECard eCard={this.state.newECard} />
+        )}
       </Fragment>
     );
   }
