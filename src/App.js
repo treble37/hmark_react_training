@@ -14,7 +14,7 @@ class App extends React.Component {
 
   handleNavigationClick = event => {
     event.preventDefault();
-    const newPage = event.target.pathname.split("/")[1];
+    const newPage = event.target.pathname.replace("/", "");
     this.setState({ currentPage: newPage });
   };
 
@@ -27,9 +27,10 @@ class App extends React.Component {
       <Fragment>
         <Navigation onLinkClick={this.handleNavigationClick} />
         {this.state.currentPage === "Home" && <Home />}
-        {this.state.currentPage === "ECards" && <ECards />}
+        {this.state.currentPage === "ECards" && (
+          <ECards onAddECardClick={this.handleAddECardClick} />
+        )}
         {this.state.currentPage === "ManageECard" && <ManageECard />}
-        {<ECards onAddECardClick={this.handleAddECardClick} />}
       </Fragment>
     );
   }
