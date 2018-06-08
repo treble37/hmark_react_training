@@ -6,6 +6,13 @@ https://github.com/coryhouse/rjc/issues
 
 https://github.com/coryhouse/hallmark
 
+### Testing Libraries
+
+- React Testing Library
+- Enzyme by AirBnb - complicated, but allows for depth
+- Jest
+- Cypress
+
 ### VS code plugins
 
 quokka.js
@@ -13,6 +20,7 @@ prettier
 npm
 npm Intellisense
 Reactjs code snippets
+React pure to class
 
 Agenda
 Today 6/6/18 Wed
@@ -36,6 +44,37 @@ Tomorrow 6/7/18 Thurs
 
 - The => uses the "this" that inherits from the parent scope enclosure
 - Higher order function - a function that accepts a function
+
+### Naming
+
+- React components traditionally start with an uppercase character
+
+### Other Core Features
+
+- Error boundaries
+- Lifecycle methods
+- Context - centralize your data
+- Redux - centralize your application state
+
+* Do AJAX calls in componentDidMount because you want to make sure your component is mounted
+* getDerviedStateFromProps(props) - called any time props have changed
+
+- Stateless functional components (basically declare a function) - Cory recommends you use these because they're faster unless you need state
+
+### Installation
+
+npm install --save-dev react-test-renderer
+
+### Chrome Plugins
+
+- React developer tools
+- Redux dev tools
+
+### Reading
+
+- React Documentation
+- Egghead.io, Pluralsight
+- Looking at open source
 
 ## Day 1 6/6/18
 
