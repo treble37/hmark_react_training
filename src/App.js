@@ -3,6 +3,7 @@ import ECards from "./ECards";
 import ManageECard from "./ManageECard";
 import Home from "./Home";
 import Navigation from "./Navigation";
+import { Route } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -28,6 +29,15 @@ class App extends React.Component {
     this.setState({ currentPage: "ManageECard" });
   };
 
+  componentDidMount() {
+    console.log("MOUNTED!");
+  }
+
+  componentDidCatch(error, info) {
+    // Display fallback UI
+    this.setState({ hasError: true });
+  }
+
   handleDeleteECardClick = (event, eCard) => {
     event.preventDefault();
     this.setState({
@@ -49,20 +59,32 @@ class App extends React.Component {
   render() {
     return (
       <Fragment>
-        <Navigation onLinkClick={this.handleNavigationClick} />
-        {this.state.currentPage === "Home" && <Home />}
-        {this.state.currentPage === "ECards" && (
-          <ECards
-            onAddECardClick={this.handleAddECardClick}
-            onDeleteECardClick={this.handleDeleteECardClick}
-            eCards={this.state.eCards}
-          />
-        )}
-        {this.state.currentPage === "ManageECard" && (
-          <ManageECard
-            eCard={this.state.newECard}
-            onSubmit={this.handleSaveECard}
-          />
+        {this.state.firstName + " " + this.state.lastname}
+        <Navigation />
+        {this.state.hasError ? (
+          <div>Whoops! 🔥</div>
+        ) : (
+          <Fragment>
+            <Route path="/" component={Home} exact />
+            <Route
+              path="/ecards"
+              render={() => (
+                <ECards
+                  eCards={this.state.eCards}
+                  onDeleteClick={this.handleDeleteECardClick}
+                />
+              )}
+            />
+            <Route
+              path="/manage"
+              render={() => (
+                <ManageECard
+                  eCard={this.state.newECard}
+                  onSubmit={this.handleSaveECard}
+                />
+              )}
+            />
+          </Fragment>
         )}
       </Fragment>
     );

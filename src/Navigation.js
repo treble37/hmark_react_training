@@ -1,24 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-class Navigation extends React.Component {
-  render() {
-    return (
-      <div>
-        <ul>
-          <li>
-            <a href="Home" onClick={this.props.onLinkClick}>
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="ECards" onClick={this.props.onLinkClick}>
-              ECards
-            </a>
-          </li>
-        </ul>
-      </div>
-    );
-  }
-}
+const Navigation = props => (
+  <ul>
+    <li>
+      <Link to="/">Home</Link>
+    </li>
+    <li>
+      <Link to="/ecards">eCards</Link>
+    </li>
+  </ul>
+);
+
 
 export default Navigation;
+
+/*
+const Navigation = props => ()
+    <ul><li>Some stuff</li></ul>
+    );
+export default Navigation;
+*/

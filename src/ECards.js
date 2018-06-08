@@ -1,6 +1,7 @@
 import React from "react";
 import ManageECard from "./ManageECard";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 /* 1. Place add ecard button above the ecards
 2. On click, display ManageECard (a form for adding a new e-card)
@@ -58,7 +59,6 @@ class ECards extends React.Component {
 
 ECards.propTypes = {
   eCards: PropTypes.array.isRequired,
-  onAddECardClick: PropTypes.func.isRequired,
   onDeleteECardClick: PropTypes.func.isRequired
 };
 
